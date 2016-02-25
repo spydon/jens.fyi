@@ -6,7 +6,7 @@ export default class Picture extends React.Component {
 
     var tapes = [];
     var turn = 1;
-    while(Math.random() < 1.0/turn && this.props.source) {
+    while(Math.random() < 1.0/turn && this.props.source && turn < 4) {
       const margin = (turn-1)*120 + "px";
       const tapeStyle = {transform: "rotate(" + Math.random()*360 + "deg)", marginLeft: margin, zIndex: 1, width: Math.floor(Math.random()*5)+7 + "em"};
       tapes.push(<div key={tapes.length} style={tapeStyle} className="tape" />);

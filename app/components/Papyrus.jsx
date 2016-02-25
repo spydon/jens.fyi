@@ -23,7 +23,7 @@ export default class Papyrus extends React.Component {
   }
 
   splitString(text) {
-    const maxLength = 30;
+    const maxLength = 37;
     text = text ? text.trim() : "";
     var rows = [];
     var i = 0;
