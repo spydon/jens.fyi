@@ -1,7 +1,7 @@
 {
-  "name": "Fork-plate-knife",
+  "name": "jens.fyi",
   "version": "0.0.0",
-  "description": "Text based adventure with weird subthemes",
+  "description": "Game made for Jens birthday",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server"

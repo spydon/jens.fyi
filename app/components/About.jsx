@@ -8,7 +8,7 @@ export default class About extends React.Component {
         <div className="papyrus">
           <div className="papyrus-child" role="main">
             <div className="tape" />
-            <Papyrus page={42} text={"This project was created by Yassine Boutaib and Lukas Klingsbo during Uprise Winter Game Jam 2015. Hope you enjoyed it!"} />
+            <Papyrus page={42} text={"Det här spelet var gjort till Jens på hans 26:e födelsedag! Grattis! önskar Lukas och Nibbe"} />
           </div>
         </div>
       </div>

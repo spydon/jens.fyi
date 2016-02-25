@@ -1,6 +1,19 @@
 import Reflux from 'reflux';
 import StateAction from '../actions/StateAction';
 
+import house from '../styles/cards/house.png';
+import hero from '../styles/cards/hero.png';
+import list from '../styles/cards/list.png';
+import boss from '../styles/cards/boss.png';
+import inventory from '../styles/cards/inventory.png';
+import spicyLand from '../styles/cards/chili_land.png';
+import spicyMonster from '../styles/cards/boss.png';
+import sweetLand from '../styles/cards/sweet_land.png';
+import sweetMonster from '../styles/cards/sweet_monster.png';
+import sourLand from '../styles/cards/sour_land.png';
+import sourMonster from '../styles/cards/sweet_monster.png';
+import tree from '../styles/cards/tree.jpg';
+
 const StateStore = Reflux.createStore({
 
   inventory: new Set(),
@@ -10,6 +23,7 @@ const StateStore = Reflux.createStore({
     {
       page: 1,
       text: "You wake up in the forrest outside your parents house, the world feels weird, it's like all colours and tastes are gone.",
+      img: tree,
       choices: [{text: "Enter the house", nextState: 2}, {text: "Eat yourself", nextState: 1338}]
     },
     {

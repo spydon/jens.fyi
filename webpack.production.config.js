@@ -37,7 +37,7 @@ var config = {
   },
   plugins: [
     new HtmlwebpackPlugin({
-      title: 'Fork-plate-knife'
+      title: 'Jens.FYI'
     })
   ],
   output: {

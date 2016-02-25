@@ -1,7 +1,10 @@
 @font-face {
     font-family: scribbly;
-    /*src: url(les_oeufs_de_cassowary_normal.ttf);*/
-    src: url(S_Hand.ttf);
+    /*src: url(janda.ttf);*/
+    /*src: url(park.ttf);*/
+    /*src: url(happy.ttf);*/
+    src: url(cassowary.ttf);
+    /*src: url(S_Hand.ttf);*/
 }
 
 body {
