@@ -129,9 +129,8 @@ const StateStore = Reflux.createStore({
     {
       page: 1339,
       bag: true,
-      text: "In your bag you see these things: ",
-      static: "In your bag you see these things: ",
-      choices: [{text: "Take your head out of the bag", nextState: -1}]
+      text: "I ryggsäcken har du följande saker: ",
+      choices: [{text: "Ta ut huvudet ur ryggsäcken", nextState: -1}]
     }
   ],
 
@@ -142,22 +141,32 @@ const StateStore = Reflux.createStore({
   onUpdateStateCompleted(page) {
     const result = this.states.filter(s => s.page == page);
     const newState = result.length == 0 ? this.history[this.history.length-1] : result[0];
+
     if(newState.item) {
       this.inventory.add(newState.item);
     }
+
     if(newState.bag) {
-      newState.text = newState.static;
-      const inventory = Array.from(this.inventory);
-      const secondLastItem = inventory[inventory.length-2];
-      const lastItem = inventory[inventory.length-1];
-      if(inventory.length == 0) {
-        newState.text = "Your bag is utterly and completely empty";
-      }
-      for(let item of inventory) {
-        const itemText = item + (lastItem == item ? "" : ", ") + (secondLastItem == item ? " and " : "");
-        newState.text += itemText;
+      console.log(this.inventory.size);
+      if(this.inventory.size != 0) {
+        var itr = 1;
+        var items = "";
+        for (let item of this.inventory) {
+          var itemText = ", " + item;
+          if(itr == 1) {
+            itemText = " och " + item;
+          } else if(this.inventory.size == itr) {
+            itemText = item;
+          }
+          items = itemText + items;
+          itr++;
+        }
+        newState.text = newState.text + " " + items;
+      } else {
+        newState.text = "Ryggan är tyvärr helt tom.";
       }
     }
+
     this.history.push(this.currentState);
     this.currentState = newState;
 
