@@ -26,7 +26,7 @@ const StateStore = Reflux.createStore({
             "Men vem är du, och hur hamnade du här egentligen? Du känner dig väldigt förvirrad. Du hittar en tom " +
             "ryggsäck som ligger bredvid dig, den är förmodligen din, eftersom det inte är någon annan i närheten.",
       img: tree,
-      choices: [{text: "Gå ut", nextState: 2}, {text: "Fortsätt sov", nextState: 1338}]
+      choices: [{text: "Gå ut", nextState: 2}, {text: "Fortsätt sov lite till", nextState: 1}]
     },
     {
       page: 2,
@@ -79,7 +79,7 @@ const StateStore = Reflux.createStore({
       page: 9, // Annika och
       text: "Två tjejer kramar om dig, men säger att de har väldigt bråttom till sitt tåg, så de springer snabbt iväg. " +
             "Nu vet du ditt namn i alla fall, alltid nått positivt!",
-      choices: [{text: "Gå vidare", nextState: 10}, {text: "Få existenskris", nextState: 11}]
+      choices: [{text: "Gå vidare", nextState: 10}, {text: "Få existenskris", nextState: 1}]
     },
     {
       page: 10,
@@ -208,7 +208,7 @@ const StateStore = Reflux.createStore({
     // Kista
     {
       page: 30,
-      text: "Du vandrar vilsen runt bland en massa Ericsson-byggnader. Fråga ",
+      text: "Du vandrar vilsen runt bland en massa Ericsson-byggnader. Fråga ", //TODO: Vad som ska hända i Kista
       choices: [{text: "Eeeen gång till", nextState: 1}]
     },
 
@@ -261,63 +261,127 @@ const StateStore = Reflux.createStore({
     },
     // Uppsala
     {
-     page: 40,
-     text: "Du hittar din cykel, vart vill du cykla?",
-     choices: [{text: "Stationen", nextState: 4},
-               {text: "Flogsta", nextState: 41},
-               {text: "Studentvägen", nextState: 1337},
-               {text: "FooBar", nextState: 1337},
-               {text: "Döbelnsgatan", nextState: 1337},
-               {text: "Uplands Nation", nextState: 1337}]
+      page: 40,
+      text: "Du hittar din cykel, vart vill du cykla?",
+      choices: [{text: "Stationen", nextState: 4},
+                {text: "Flogsta", nextState: 41},
+                {text: "Studentvägen", nextState: 48},
+                {text: "FooBar", nextState: 52},
+                {text: "Döbelnsgatan", nextState: 55},
+                {text: "Uplands Nation", nextState: 56}]
+    },
+    // Flogsta
+    {
+      page: 41,
+      text: "Du kommer fram till ICA väst och funderar på om det var låg- eller höghusen du ville till.",
+      choices: [{text: "Mot höghusen!", nextState: 42}, {text: "Mot låghusen!", nextState: 45}]
     },
     {
-     page: 41,
-     text: "Du kommer fram till ICA väst och funderar på om det var låg- eller höghusen du ville till.",
-     choices: [{text: "Mot höghusen!", nextState: 42}, {text: "Mot låghusen!", nextState: 45}]
+      page: 42,
+      text: "Det är totalt kaos här, men ingen verkar bry sig. De verkar till och med tycka om det.",
+      choices: [{text: "Hälsa på folk", nextState: 43}, {text: "Skaka på axlarna och gå", nextState: 40}]
     },
     {
-     page: 42,
-     text: "Det är totalt kaos här, men ingen verkar bry sig. De verkar till och med tycka om det.",
-     choices: [{text: "Hälsa på folk", nextState: 43}, {text: "Skaka på axlarna och gå", nextState: 40}]
+      page: 43,
+      text: "Du hälsar på folk, vilket de verkar tycka är konstigt. Festen fortsätter länge och du börjar bli trött, men " +
+      "du kommer ju inte ihåg vart du bor.",
+      choices: [{text: "Gå till cykeln", nextState: 40}, {text: "Fortsätt festa", nextState: 44}]
     },
     {
-     page: 43,
-     text: "Du hälsar på folk, vilket de verkar tycka är konstigt. Festen fortsätter länge och du börjar bli trött, men " +
-     "du kommer ju inte ihåg vart du bor.",
-     choices: [{text: "Gå till cykeln", nextState: 40}, {text: "Fortsätt festa", nextState: 44}]
+      page: 44,
+      text: "Klockan är 6 på morgonen, dags att ta sig härifrån!",
+      choices: [{text: "Ta dig till stationen", nextState: 4}, {text: "Mot cykeln", nextState: 40}]
     },
     {
-     page: 44,
-     text: "Klockan är 6 på morgonen, dags att ta sig härifrån!",
-     choices: [{text: "Ta dig till stationen", nextState: 4}, {text: "Mot cykeln", nextState: 40}]
+      page: 45,
+      text: "Du plingar på en slumpmässig lägenhet, du blir inbjuden att antingen spela spel eller festa, vad låter bäst?",
+      choices: [{text: "Spela spel", nextState: 46}, {text: "Festa", nextState: 47}]
     },
     {
-     page: 45,
-     text: "Du plingar på en slumpmässig lägenhet, du blir inbjuden att antingen spela spel eller festa, vad låter bäst?",
-     choices: [{text: "Spela spel", nextState: 46}, {text: "Festa", nextState: 48}]
+      page: 46,
+      item: "Mask",
+      text: "Du spelar ett långt och onödigt komplicerat spel. Men du vinner stort och får en utklädnadsmask i pris.",
+      choices: [{text: "Nöjd lämnar du lägenheten", nextState: 40}]
     },
     {
-     page: 46,
-     item: "Mask",
-     text: "Du spelar ett långt och onödigt komplicerat spel. Men du vinner stort och får en utklädnadsmask i pris.",
-     choices: [{text: "Nöjd lämnar du lägenheten", nextState: 40}]
+      page: 47,
+      text: "Det kommer 40 personer till och klämmer in sig i lägenheten. \"Mysigt\", tänker du. Det blir en kul fest i alla fall! Vad vill du göra nu?",
+      choices: [{text: "Gå till ICA", nextState: 41}, {text: "Cykla", nextState: 40}]
     },
-    // Special states
+    // Studentvägen
+    {
+      page: 48,
+      text: "Framme efter en supersnabbcykling till studentvägen, men vart vill du gå?",
+      choices: [{text: "Till pizzerian", nextState: 49}, {text: "Studentvägen 3", nextState: 51}]
+    },
+    {
+      page: 49,
+      text: "Pizzeriamakaren tycker du ser lite taning ut och gör en pizza med extra allt. " +
+            "Gott ser det ut och du har glömt att äta sen du vaknade på snabbmatsstället.",
+      choices: [{text: "Ät pizzan", nextState: 50}, {text: "Spring för livet", nextState: 11}]
+    },
+    {
+      page: 50,
+      text: "Du äter upp pizzan och känner hur du liksom smälter innifrån. Du är nu en pizza. " +
+            "Trevligt, men kontraproduktivt.",
+      choices: [{text: "Ät upp dig själv", nextState: 1}]
+    },
+    {
+      page: 51,
+      text: "Framme vid Studentvägen 3, detta känns verkligen som hemma. Då kommer någon som du känner igen och hon är " +
+            "väldigt glad att se dig, hon springer mot dig!",
+      choices: [{text: "Stå kvar", nextState: 1337}, {text: "Ninja dig därifrån", nextState: 40}]
+    },
+    // FooBar
+    {
+      page: 52,
+      text: "Du kommer fram till FooBar, det luktar svett... Och jul av någon anledning. Det kommer en galen tjej och " +
+            "drar dig i kinderna! Aj aj.",
+      choices: [{text: "Fly ut", nextState: 40}, {text: "Dags att plugga, tydligen", nextState: 53}]
+    },
+    {
+      page: 53,
+      text: "Du pluggar hårt, du vet inte riktigt varför. Eller ens till vilken kurs det är, men det är någon gammal rutin " +
+            "eller nått.",
+      choices: [{text: "Tråkigt", nextState: 40}, {text: "Dags för en öl?", nextState: 54}]
+    },
+    {
+      page: 54,
+      text: "Vart ska det drickas öl? Du kan bara komma på två ställen, som du inte vet varför du kommer ihåg.",
+      choices: [{text: "Uplands Nation", nextState: 56}, {text: "Döbelnsgatan", nextState: 55}]
+    },
+    {
+      page: 55,
+      text: "Väl framme vid Döbelnsgatan blir du välkomnad in och precis som din magkänsla sa så fick du en öl och trevligt sällskap!",
+      choices: [{text: "Utgång!", nextState: 56}, {text: "Cykeldags", nextState: 40}]
+    },
+    {
+      page: 56,
+      text: "Sagt och gjort, nu sitter du på Uplands nation.",
+      choices: [{text: "Beställ en öl", nextState: 57}, {text: "Kolla runt", nextState: 58}]
+    },
+    {
+      page: 57,
+      text: "Du beställer en öl som nu är slut, vad vill du göra?",
+      choices: [{text: "Beställ en öl", nextState: 57}, {text: "Cykla", nextState: 40}]
+    },
+    {
+      page: 58,
+      item: "Badmössa",
+      text: "Efter lite runt-kollande så hittar du en badmössa som någon glömt ifrån en pubrunda. " +
+            "Bra att ha tänker du och stoppar den i väskan.",
+      choices: [{text: "Beställ en öl", nextState: 57}, {text: "Gå ut", nextState: 40}]
+    },
+
+     // Special states
     {
       page: 1337,
       end: true,
-      text: "Du får en puss, på munnen! Allting klarnar, du vet vem du är! Du. Är. SUUUUUUUPER-JENS!",
+      text: "",
       choices: []
     },
     {
       page: 1338,
-      end: true,
-      text: "Du får en puss av den snygga tjejen och allt blod går ifrån hjärnan... " +
-      "till någon annanstans... och du svimmar direkt!",
-      choices: [{text: "Kvickna till", nextState: 1}]
-    },
-    {
-      page: 1339,
       bag: true,
       text: "I ryggsäcken har du följande saker: ",
       choices: [{text: "Ta ut huvudet ur ryggsäcken", nextState: -1}]
@@ -347,10 +411,10 @@ const StateStore = Reflux.createStore({
         var items = "";
         for (let item of this.inventory) {
           var itemText = ", " + item;
-          if(itr == 1) {
-            itemText = " och " + item;
-          } else if(this.inventory.size == itr) {
+          if(this.inventory.size == itr) {
             itemText = item;
+          } else if(itr == 1) {
+            itemText = " och " + item;
           }
           items = itemText + items;
           itr++;

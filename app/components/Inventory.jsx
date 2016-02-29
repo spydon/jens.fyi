@@ -23,11 +23,12 @@ export default class Inventory extends React.Component {
   }
 
   updateState(state) {
+    console.log(state);
     this.setState(state);
   }
 
   openBag() {
-    StateAction.updateState(1339);
+    StateAction.updateState(1338);
   }
 
   render() {

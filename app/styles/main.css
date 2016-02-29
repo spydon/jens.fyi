@@ -64,6 +64,7 @@ p {
 
 .papyrus-btn-group {
     position: absolute !important;
+    max-width: 450px;
     text-align: left;
     bottom: 0;
     margin-bottom: 40px;
