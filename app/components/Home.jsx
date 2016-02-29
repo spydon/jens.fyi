@@ -42,7 +42,7 @@ export default class Home extends React.Component {
   }
 
   render() {
-    const end = !!this.state.win || !!this.state.fail;
+    const end = !!this.state.end;
     const playStyle = end ? {display: "none"} : {};
 
     return (

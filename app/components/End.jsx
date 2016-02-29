@@ -14,7 +14,7 @@ export default class End extends React.Component {
   render() {
     const validWin = this.checkValidity(this.props.history, this.props.inventory);
     const score = 40-this.props.history.length;
-    const winText = this.props.text + "Score: " + score;
+    const winText = this.props.text + " Score: " + score;
     const failText = this.props.text;
 
     const winStyle = this.props.visible ? {} : {display: "none"};

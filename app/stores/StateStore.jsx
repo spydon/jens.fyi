@@ -23,8 +23,8 @@ const StateStore = Reflux.createStore({
     {
       page: 1,
       text: "Du vaknar upp med ett ryck, du ser dig omkring och drar slutsatsen att du är på ett snabbmatställe. " +
-            "Men vem är du, och hur hamnade du här egentligen? Du känner dig väldigt förvirrad. Du hittar en väska som " +
-            "ligger bredvid dig, den är förmodligen din, eftersom det inte är någon annan i närheten.",
+            "Men vem är du, och hur hamnade du här egentligen? Du känner dig väldigt förvirrad. Du hittar en tom " +
+            "ryggsäck som ligger bredvid dig, den är förmodligen din, eftersom det inte är någon annan i närheten.",
       img: tree,
       choices: [{text: "Gå ut", nextState: 2}, {text: "Fortsätt sov", nextState: 1338}]
     },
@@ -44,8 +44,9 @@ const StateStore = Reflux.createStore({
       text: "Du hamnar på Uppsala centralstation, kanske behöver du åka någonstans för att få reda på vem du är?",
       choices: [{text: "Stockholm", nextState: 6},
                 {text: "Västerås", nextState: 12},
-                {text: "Upplands Väsby", nextState: 1337},
-                {text: "Mora", nextState: 1337},
+                {text: "Upplands Väsby", nextState: 13},
+                {text: "Sälen", nextState: 24},
+                {text: "Kista", nextState: 30},
                 {text: "Öland", nextState: 1337},
                 {text: "Orbaden", nextState: 1337},
                 {text: "Gå till stora torget", nextState: 1337}]
@@ -84,12 +85,12 @@ const StateStore = Reflux.createStore({
       page: 10,
       item: "Coola skor",
       text: "\"Vad gör du här bror? Åk hem till Uppsala, de letar efter dig där! " +
-            "Du glömde dina springskor hos mig i förrgår förresten, här.\" Malin ger dig dina skor.",
+            "Du glömde dina springskor hos mig i förrgår förresten. Här.\" Malin ger dig dina skor.",
       choices: [{text: "Lyd din visa syster och åk hem", nextState: 4}, {text: "Ta på dig skorna", nextState: 11}]
     },
     {
       page: 11,
-      text: "Du tar på dig skorna och automagiskt så börjar du springa. Problemet är bara att du inte kan stanna, " +
+      text: "Du tar på dig springskorna och automagiskt så börjar du springa. Problemet är bara att du inte kan stanna, " +
             "du behöver nått som ger lite luftmotstånd! Du springer till universums undergång, " +
             "trevligt men kontraproduktivt.",
       choices: [{text: "Börja om", nextState: 1}]
@@ -97,48 +98,134 @@ const StateStore = Reflux.createStore({
     // Västerås
     {
       page: 12,
-      text: "",
-      choices: [{text: "Go home!", nextState: 4}]
+      text: "Du hamnar i en studentlägenhet och någon säger att det är Festivås. Efter några timmar somnar du till.",
+      choices: [{text: "Vakna!", nextState: 1}]
     },
-    // SOUR
+    // Upplands väsby
     {
       page: 13,
-      text: "You land on a planet so sour that nothing could ever have lived here.",
-      choices: [{text: "Explore it anyways", nextState: 14}, {text: "Fly home", nextState: 4}]
+      text: "Tåget rullar in på stationen. Det här känns bekant på nått sätt...",
+      choices: [{text: "Hoppa på en buss", nextState: 16}, {text: "Låt fötterna leda dig", nextState: 14}]
     },
     {
       page: 14,
-      text: "You meet a sour monster, he doesn't seem to like you at all.",
-      choices: [{text: "Hug the little fella!", nextState: 15}, {text: "Particle-accelerator-juice-him.", nextState: 16}, {text: "Lick him...", nextState: 17}]
+      text: "Du kommer fram till ett hus som känns väldigt bekant. " +
+            "Det står någon i fönstet som vinkar att du ska komma in.",
+      choices: [{text: "Creepy, spring därifrån!", nextState: 11}, {text: "Gå in.", nextState: 15}]
     },
     {
       page: 15,
-      text: "The monster turns sweet and you put some sweetness into your bag.",
-      choices: [{text: "Get out of here", nextState: 4}]
+      item: "Spandex brallor",
+      text: "Det är tydligen din Pappa. \"Tur att man hade en sånn i alla fall\", tänker du. " +
+      "Han bjuder dig på lunch och efterrätt. Efter lunchen ger han dig ett par tighta spandex-cykelbrallor som han tror " +
+      "skulle passa dig.",
+      choices: [{text: "Ta brallorna och gå till bussen", nextState: 16}]
     },
     {
       page: 16,
-      item: "Sour",
-      text: "You particle juice accelerate the little bugger real good and put the sour juice in your bag",
-      choices: [{text: "Get out of here, you monster!", nextState: 4}]
+      text: "Du står vid busshållplatsen, vart vill du ta dig?",
+      choices: [{text: "Uppsala", nextState: 4},
+                {text: "Vattmåravägen", nextState: 17},
+                {text: "Bredden", nextState: 20},
+                {text: "Smedby", nextState: 22}]
     },
     {
-      page: 17,
-      text: "You lick him and to remove the incredibly sour taste from your tongue you are forced to eat yourself.",
-      choices: [{text: "Eat yourself, just do it.", nextState: 1338}]
+      page: 17, // Läskig bild på Emelie, Jossan och Malin
+      text: "Det står några tjejer där, de ser fruktansvärt läskiga ut",
+      choices: [{text: "Gå baklänges till busshållplatsen", nextState: 16}, {text: "Prata med dem", nextState: 18}]
     },
-    // End states
+    {
+      page: 18, // Kaffe
+      text: "De bjuder in dig på kaffe. Du hatar kaffe och det gör alla dem också. De berättar om någon superhjälte som " +
+            "varit i farten den senaste tiden, men som nu spårlöst är försvunnen.",
+      choices: [{text: "Du flyr till busshållplatsen", nextState: 16}, {text: "Ta en till kopp kaffe", nextState: 19}]
+    },
+    {
+      page: 19, // Explosion
+      text: "Du tål inte så här mycket koffein. Du exploderar. Jahapp, det var ju oturligt.",
+      choices: [{text: "Börja om", nextState: 1}]
+    },
+    {
+      page: 20, // Fanny, Annelie och Elin
+      text: "Du har definitivt kommit fel. Det är bara hästar överallt här. Förutom några personer som står och", //TODO: Depending on pic
+      choices: [{text: "Fråga personerna vart du hamnat", nextState: 21}, {text: "Bussdags!", nextState: 16}]
+    },
+    {
+      page: 21, // Bild på hästtäcke
+      item: "Mantel",
+      text: "De känner igen dig. Väldigt konstigt att varenda person du träffar på känner och verkar gilla dig, tänker du." +
+      "Vad är det här egentligen, Truman Show?! De kramar om dig och ger dig ett hästtäcke som nästan ser ut som en mantel.",
+      choices: [{text: "Tacka artigt och gå till bussen", nextState: 16}]
+    },
+    {
+      page: 22, // Johan och petter med tophats
+      text: "Du träffar på två gentlemän. De tycker det är fruktansvärt roligt att du inte kommer ihåg nått. " +
+            "Snart märker du att det inte alls var gentlemän, det var internettroll! " +
+            "De kastar bort all tid du har utan att ge nått vettigt tillbaka.",
+      choices: [{text: "Spola tillbaka tiden", nextState: 1}]
+    },
+    {
+      page: 23,
+      text: "De bjuder in dig på kaffe. Du hatar kaffe och det gör alla dem också. De berättar om någon superhjälte som " +
+            "varit i farten den senaste tiden, men som nu spårlöst är försvunnen.",
+      choices: [{text: "Du flyr till busshållplatsen", nextState: 16}, {text: "Ta en till kopp kaffe", nextState: 17}]
+    },
+    // Sälen
+    {
+      page: 24,
+      text: "Du kommer till Sälens tågstation, ypperligt fin. Eller nått. Särskilt eftersom den inte finns på riktigt.",
+      choices: [{text: "Kontemplera över verkligheten", nextState: 25}, {text: "Åk lite mer imaginärt tåg!", nextState: 4}]
+    },
+    {
+      page: 25,
+      text: "Under kontemplererandet så har du händerna i fickorna, så som sig bör. I fickan hittar du ett startnummer till " +
+      "Vasaloppet. Vad kan gå fel tänker du.",
+      choices: [{text: "Ta dig till starten", nextState: 26}, {text: "Ugh, jobbigt, roligare mer tåg!", nextState: 4}]
+    },
+    {
+      page: 26, // Bild på Jens pappa och farfar
+      text: "Några random snubbar ger dig färdigvallade skidor och stavar. Du sätter på dig spandexbrallorna som du " +
+      "förhoppningsvis hittat, annars tror du att du gör det och åker i kalsonger istället",
+      choices: [{text: "Åk snabbt", nextState: 27}, {text: "Åk kontrollerat", nextState: 28}]
+    },
+    {
+      page: 27, // Trädet
+      text: "Helt sönderkörda kurvor, du hamnar helt utanför banan. Skidorna lossnar och till din förtvivlan så äter " +
+      "ett träd upp dig. Jobbigt.",
+      choices: [{text: "Happ", nextState: 1}]
+    },
+    {
+      page: 28,
+      text: "Du kör fantastiskt trots stora horder av muppiga skidåkare! Du glider in på 3:44 och får någon form av " +
+      "skitstort glansigt Oboy-glas, vad du nu ska med det till.",
+      choices: [{text: "Byt Oboyglaset mot en tågbiljett hem", nextState: 4}, {text: "Drick Oboy!", nextState: 29}]
+    },
+    {
+      page: 29,
+      text: "Ett glas Oboy är mer än vad du kommer ihåg. Du klarar inte mer. Du exploderar.",
+      choices: [{text: "Eeeen gång till", nextState: 1}]
+    },
+    // Kista
+    {
+      page: 30,
+      text: "",
+      choices: [{text: "Eeeen gång till", nextState: 1}]
+    },
+
+
+    // Special states
     {
       page: 1337,
-      win: true,
-      text: "",
+      end: true,
+      text: "Du får en puss, på munnen! Allting klarnar, du vet vem du är! Du. Är. SUUUUUUUPER-JENS!",
       choices: []
     },
     {
       page: 1338,
-      fail: true,
-      text: "",
-      choices: []
+      end: true,
+      text: "Du får en puss av den snygga tjejen och allt blod går ifrån hjärnan... " +
+      "till någon annanstans... och du svimmar direkt!",
+      choices: [{text: "Kvickna till", nextState: 1}]
     },
     {
       page: 1339,
