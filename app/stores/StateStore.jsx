@@ -76,7 +76,7 @@ const StateStore = Reflux.createStore({
       choices: [{text: "Undersök saken", nextState: 9}, {text: "Lunka vidare", nextState: 10}]
     },
     {
-      page: 9,
+      page: 9, // Annika och
       text: "Två tjejer kramar om dig, men säger att de har väldigt bråttom till sitt tåg, så de springer snabbt iväg. " +
             "Nu vet du ditt namn i alla fall, alltid nått positivt!",
       choices: [{text: "Gå vidare", nextState: 10}, {text: "Få existenskris", nextState: 11}]
@@ -180,7 +180,7 @@ const StateStore = Reflux.createStore({
       page: 25,
       text: "Under kontemplererandet så har du händerna i fickorna, så som sig bör. I fickan hittar du ett startnummer till " +
       "Vasaloppet. Vad kan gå fel tänker du.",
-      choices: [{text: "Ta dig till starten", nextState: 26}, {text: "Ugh, jobbigt, roligare mer tåg!", nextState: 4}]
+      choices: [{text: "Ta dig till starten", nextState: 26}, {text: "Ugh, jobbigt, roligare med tåg!", nextState: 4}]
     },
     {
       page: 26, // Bild på Jens pappa och farfar
@@ -208,11 +208,100 @@ const StateStore = Reflux.createStore({
     // Kista
     {
       page: 30,
-      text: "",
+      text: "Du vandrar vilsen runt bland en massa Ericsson-byggnader. Fråga ",
       choices: [{text: "Eeeen gång till", nextState: 1}]
     },
 
-
+    // Öland
+    {
+      page: 33,
+      text: "Du bygger om tåget till någon form av amfibiebåtståg och tar dig fram till Öland.",
+      choices: [{text: "Bygg om det till en ubåt", nextState: 34}, {text: "Utforska ön", nextState: 37}]
+    },
+    {
+      page: 34,
+      text: "En sak är säker, du är ingen ubåtsbyggare, så nu vet du det i alla fall. Tyvärr får du redan på det precis " +
+      "innan en rysk ubåt kommer och börjar attackera dig.",
+      choices: [{text: "Retirera", nextState: 35}, {text: "Ring kungen!", nextState: 36}]
+    },
+    {
+      page: 35,
+      text: "\"Ubåten\" sjunker till botten och du konverterar till sjöjungfru",
+      choices: [{text: "Konvertera tillbaka", nextState: 1}]
+    },
+    {
+      page: 36,
+      item: "Röda kalsonger",
+      text: "Kungen fixar biffen och jagar bort ryssen. Han ger dig ett par nya kalsonger, eftersom dina gamla blivit " +
+            "blöta av olika anledningar.",
+      choices: [{text: "Dags att utforska ön!", nextState: 37}]
+    },
+    {
+      page: 37,
+      text: "Du utforskar ön och hittar bland annat lite delfiner i soluppgången. Du somnar på stranden för att sedan bli " +
+      "väckt av några, vad du antar, måste vara galningar.",
+      choices: [{text: "Lek med galningarna", nextState: 38}, {text: "Ta amfibiebåtståget hem", nextState: 4}]
+    },
+    {
+      page: 38,
+      text: "Du leker med galningarna på stranden tills de bestämmer sig för att ",//TODO: Passande bild
+      choices: [{text: "Åk hem", nextState: 4}, {text: "Ta en simtur", nextState: 39}]
+    },
+    {
+      page: 39,
+      text: "Du får ett kylskåp i huvudet. Oturlig simtur tänker du, eller ja, hade du tänkt om du haft ett huvud kvar.",
+      choices: [{text: "Återuppstå", nextState: 1}]
+    },
+    // Orbaden
+    {
+      page: 40,
+      item: "Handskar",
+      text: "Här var det ju mysigt tänker du ... De ger dig ett par handskar eftersom det är så kallt ute. ", //TODO: Passande farfar och farmor bild
+      choices: [{text: "Åk skidor hem", nextState: 27}, {text: "Lifta", nextState: 4}]
+    },
+    // Uppsala
+    {
+     page: 40,
+     text: "Du hittar din cykel, vart vill du cykla?",
+     choices: [{text: "Stationen", nextState: 4},
+               {text: "Flogsta", nextState: 41},
+               {text: "Studentvägen", nextState: 1337},
+               {text: "FooBar", nextState: 1337},
+               {text: "Döbelnsgatan", nextState: 1337},
+               {text: "Uplands Nation", nextState: 1337}]
+    },
+    {
+     page: 41,
+     text: "Du kommer fram till ICA väst och funderar på om det var låg- eller höghusen du ville till.",
+     choices: [{text: "Mot höghusen!", nextState: 42}, {text: "Mot låghusen!", nextState: 45}]
+    },
+    {
+     page: 42,
+     text: "Det är totalt kaos här, men ingen verkar bry sig. De verkar till och med tycka om det.",
+     choices: [{text: "Hälsa på folk", nextState: 43}, {text: "Skaka på axlarna och gå", nextState: 40}]
+    },
+    {
+     page: 43,
+     text: "Du hälsar på folk, vilket de verkar tycka är konstigt. Festen fortsätter länge och du börjar bli trött, men " +
+     "du kommer ju inte ihåg vart du bor.",
+     choices: [{text: "Gå till cykeln", nextState: 40}, {text: "Fortsätt festa", nextState: 44}]
+    },
+    {
+     page: 44,
+     text: "Klockan är 6 på morgonen, dags att ta sig härifrån!",
+     choices: [{text: "Ta dig till stationen", nextState: 4}, {text: "Mot cykeln", nextState: 40}]
+    },
+    {
+     page: 45,
+     text: "Du plingar på en slumpmässig lägenhet, du blir inbjuden att antingen spela spel eller festa, vad låter bäst?",
+     choices: [{text: "Spela spel", nextState: 46}, {text: "Festa", nextState: 48}]
+    },
+    {
+     page: 46,
+     item: "Mask",
+     text: "Du spelar ett långt och onödigt komplicerat spel. Men du vinner stort och får en utklädnadsmask i pris.",
+     choices: [{text: "Nöjd lämnar du lägenheten", nextState: 40}]
+    },
     // Special states
     {
       page: 1337,
