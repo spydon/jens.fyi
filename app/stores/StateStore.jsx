@@ -22,68 +22,82 @@ const StateStore = Reflux.createStore({
   states: [
     {
       page: 1,
-      text: "You wake up in the forrest outside your parents house, the world feels weird, it's like all colours and tastes are gone.",
+      text: "Du vaknar upp med ett ryck, du ser dig omkring och drar slutsatsen att du är på ett snabbmatställe. " +
+            "Men vem är du, och hur hamnade du här egentligen? Du känner dig väldigt förvirrad. Du hittar en väska som " +
+            "ligger bredvid dig, den är förmodligen din, eftersom det inte är någon annan i närheten.",
       img: tree,
-      choices: [{text: "Enter the house", nextState: 2}, {text: "Eat yourself", nextState: 1338}]
+      choices: [{text: "Gå ut", nextState: 2}, {text: "Fortsätt sov", nextState: 1338}]
     },
     {
       page: 2,
-      text: "In the kitchen of the house there is a cookie monster telling you that your parents are dead. Killed by a monstrous creature who forced them to cook christmas dinner until they died. He gives you a note.",
-      choices: [{text: "Take note", nextState: 3}]
+      text: "Du kommer ut på ett torg med några busshållplatser.",
+      choices: [{text: "Fråga någon vart du är", nextState: 3}, {text: "Gå i slumpmässig riktning", nextState: 4}]
     },
     {
-      page: 3,
-      text: "The cookie monster tells you that there is one last chance, one last chance to save your parents and this world! You have to find all the falvours that have gone missing.",
-      choices: [{text: "Take on the mission!", nextState: 4}, {text: "Sounds hard, I'll eat myself instead", nextState: 1338}]
+      page: 3, //Per
+      text: "Personen du frågar verkar känna igen dig och säger: \"Roligt skämt min gode herre, " +
+            "vi är ju självfallet på stora torget i Uppsala\"",
+      choices: [{text: "Fortsätt gå", nextState: 4}, {text: "Småprata med honom", nextState: 5}]
     },
     {
       page: 4,
-      text: "You are back outside of the house, in the forrest, and remember that you left your space ship there after a crazy night at Flustret. Which planet do you want to go to?",
-      choices: [{text: "Sweet", nextState: 5}, {text: "Spicy", nextState: 9}, {text: "Sour", nextState: 13}, {text: "Mix the ingredients in your bag", nextState: 1337}]
+      text: "Du hamnar på Uppsala centralstation, kanske behöver du åka någonstans för att få reda på vem du är?",
+      choices: [{text: "Stockholm", nextState: 6},
+                {text: "Västerås", nextState: 12},
+                {text: "Upplands Väsby", nextState: 1337},
+                {text: "Mora", nextState: 1337},
+                {text: "Öland", nextState: 1337},
+                {text: "Orbaden", nextState: 1337},
+                {text: "Gå till stora torget", nextState: 1337}]
     },
-    // SWEET
     {
-      page: 5,
-      text: "You stand next to the spaceship on the sweet planet, what do you want to do?",
-      choices: [{text: "Explore", nextState: 6}, {text: "Fly home", nextState: 4}]
+      page: 5, //Per
+      text: "Per som personen hette, gör en lång utläggning om religion, meningen med livet och förklarar varför hundar " +
+            "är bättre än katter. Du somnar i en hög på asfalten och får aldrig reda på vem du är.",
+      choices: [{text: "Börja om", nextState: 1}]
     },
+    // Stockholm
     {
       page: 6,
-      text: "You find a sweet little monster, he is carrying the sweet taste, just what you need!",
-      choices: [{text: "Chain saw him!", nextState: 7}, {text: "Give him a hug.", nextState: 8, item: "Sweet"}, {text: "Go back", nextState: -1}]
+      text: "Tåget anländer två timmar för sent till centralstationen i Stockholm",
+      choices: [{text: "Klaga till biljettkontrollanten!", nextState: 7}, {text: "Gå till plattan.", nextState: 8}]
     },
     {
-      page: 7,
-      item: "Sour",
-      text: "The sweetness turned sour after your horrible chain saw murder, ah well, sour is also a taste! Sour is now in your bag.",
-      choices: [{text: "Go home", nextState: 4}, {text: "You can't stand it, eat yourself!", nextState: 1338}]
+      page: 7, // Någon vän photoshoppad som kontrollant
+      item: "SJ-bälte",
+      text: "Kontrollanten ber så hemskt mycket om ursäkt och ger dig sitt " +
+            "bälte som det står SJ i stora bokstäver på som kompensation.",
+      choices: [{text: "Vandra ut ur stationen", nextState: 8}, {text: "Åk tillbaka till Uppsala", nextState: 4}]
     },
     {
-      page: 8,
-      item: "Sweet",
-      text: "The sweet little monster cheers from the attention and gives you a little vial of sweet which you put in your bag.",
-      choices: [{text: "Run to the spaceship", nextState: 4}]
+      page: 8, // Bild på vägen till plattan
+      text: "\"Heeeej Jens!\" är det någon som skriker, det verkar vara riktat till dig.",
+      choices: [{text: "Undersök saken", nextState: 9}, {text: "Lunka vidare", nextState: 10}]
     },
-    // SPICY
     {
       page: 9,
-      text: "You can barely breathe from all the spicy fumes on the planet, you feel like ending this all by eating yourself.",
-      choices: [{text: "Eat yourself", nextState: 1338}, {text: "Explore the area", nextState: 10}, {text: "Go home", nextState: 4}]
+      text: "Två tjejer kramar om dig, men säger att de har väldigt bråttom till sitt tåg, så de springer snabbt iväg. " +
+            "Nu vet du ditt namn i alla fall, alltid nått positivt!",
+      choices: [{text: "Gå vidare", nextState: 10}, {text: "Få existenskris", nextState: 11}]
     },
     {
       page: 10,
-      text: "There is a weird monster spelling of spicy stuff standing in front of you, what do you want to do?",
-      choices: [{text: "Hug him", nextState: 11}, {text: "Juice him up in your particle accelerator", nextState: 12}, {text: "Get out of here", nextState: 4}]
+      item: "Coola skor",
+      text: "\"Vad gör du här bror? Åk hem till Uppsala, de letar efter dig där! " +
+            "Du glömde dina springskor hos mig i förrgår förresten, här.\" Malin ger dig dina skor.",
+      choices: [{text: "Lyd din visa syster och åk hem", nextState: 4}, {text: "Ta på dig skorna", nextState: 11}]
     },
     {
       page: 11,
-      text: "He forces you to eat yourself with his extremely spicy smell.",
-      choices: [{text: "Eat yourself", nextState: 1338}]
+      text: "Du tar på dig skorna och automagiskt så börjar du springa. Problemet är bara att du inte kan stanna, " +
+            "du behöver nått som ger lite luftmotstånd! Du springer till universums undergång, " +
+            "trevligt men kontraproduktivt.",
+      choices: [{text: "Börja om", nextState: 1}]
     },
+    // Västerås
     {
       page: 12,
-      item: "Spicy",
-      text: "You juice him up real good and put the spicy particle juice in your bag.",
+      text: "",
       choices: [{text: "Go home!", nextState: 4}]
     },
     // SOUR
@@ -144,6 +158,10 @@ const StateStore = Reflux.createStore({
 
     if(newState.item) {
       this.inventory.add(newState.item);
+    }
+
+    if(newState.page == 1) {
+      this.inventory.clear();
     }
 
     if(newState.bag) {
