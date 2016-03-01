@@ -23,22 +23,41 @@ import trolls from '../styles/cards/trolls.jpg';
 import derp from '../styles/cards/derp.jpg';
 import imaginary from '../styles/cards/imaginary_train.jpg';
 import vasaloppet from '../styles/cards/vasaloppet.png';
-//import tree from '../styles/cards/tree.jpg';
-//import tree from '../styles/cards/tree.jpg';
-//import tree from '../styles/cards/tree.jpg';
-//import tree from '../styles/cards/tree.jpg';
-//import tree from '../styles/cards/tree.jpg';
-//import tree from '../styles/cards/tree.jpg';
-//import tree from '../styles/cards/tree.jpg';
-//import tree from '../styles/cards/tree.jpg';
-//import tree from '../styles/cards/tree.jpg';
-//import tree from '../styles/cards/tree.jpg';
-//import tree from '../styles/cards/tree.jpg';
-//import tree from '../styles/cards/tree.jpg';
-//import tree from '../styles/cards/tree.jpg';
-//import tree from '../styles/cards/tree.jpg';
-//import tree from '../styles/cards/tree.jpg';
-//import tree from '../styles/cards/tree.jpg';
+import tree from '../styles/cards/tree.jpg';
+import oboy from '../styles/cards/explosion_oboy.jpg';
+import ericsson from '../styles/cards/ericsson.jpg';
+import elin from '../styles/cards/elin.jpg';
+import amfibie from '../styles/cards/amfibie.jpg';
+import ryssen from '../styles/cards/ryssen_kommer.jpg';
+import sjofungfru from '../styles/cards/sjojungfru.png';
+import kungen from '../styles/cards/kungen.jpg';
+import oland from '../styles/cards/oland.jpg';
+import hatt from '../styles/cards/hatt.jpg';
+import kalskap from '../styles/cards/kalskap.jpg';
+import orbaden from '../styles/cards/orbaden.jpg';
+import cykel from '../styles/cards/cykel.jpg';
+import ica_vast from '../styles/cards/ica_vast.jpg';
+import vasajens from '../styles/cards/vasaloppet.jpg';
+import hoghus from '../styles/cards/flogsta_hoghus.jpg';
+import hoghus2 from '../styles/cards/flogsta_hoghus2.jpg';
+import hoghus3 from '../styles/cards/flogsta_hoghus3.jpg';
+import flogsta75d from '../styles/cards/75D.jpg';
+import mask from '../styles/cards/mask.jpg';
+import pizzeria from '../styles/cards/pizzeria.jpg';
+import studentvagen from '../styles/cards/studentvagen.jpg';
+import pizzahut from '../styles/cards/pizzahut.jpg';
+import rygga from '../styles/cards/rygga.png';
+import foobar from '../styles/cards/foobar.jpg';
+import puss from '../styles/cards/puss.jpg';
+import kinder from '../styles/cards/kinder.jpg';
+//import hoghus from '../styles/cards/flogsta_hoghus.jpg';
+//import hoghus from '../styles/cards/flogsta_hoghus.jpg';
+//import hoghus from '../styles/cards/flogsta_hoghus.jpg';
+//import hoghus from '../styles/cards/flogsta_hoghus.jpg';
+//import hoghus from '../styles/cards/flogsta_hoghus.jpg';
+//import hoghus from '../styles/cards/flogsta_hoghus.jpg';
+//import hoghus from '../styles/cards/flogsta_hoghus.jpg';
+//import hoghus from '../styles/cards/flogsta_hoghus.jpg';
 //import tree from '../styles/cards/tree.jpg';
 
 const StateStore = Reflux.createStore({
@@ -232,72 +251,90 @@ const StateStore = Reflux.createStore({
       choices: [{text: "Ta dig till starten", nextState: 26}, {text: "Ugh, jobbigt, roligare med tåg!", nextState: 4}]
     },
     {
-      page: 26, // Bild på Jens pappa och farfar
+      page: 26,  // TODO: bild
       text: "Några random snubbar ger dig färdigvallade skidor och stavar. Du sätter på dig spandexbrallorna som du " +
       "förhoppningsvis hittat, annars tror du att du gör det och åker i kalsonger istället",
       choices: [{text: "Åk snabbt", nextState: 27}, {text: "Åk kontrollerat", nextState: 28}]
     },
     {
-      page: 27, // Trädet
+      page: 27,
+      img: tree,
       text: "Helt sönderkörda kurvor, du hamnar helt utanför banan. Skidorna lossnar och till din förtvivlan så äter " +
       "ett träd upp dig. Jobbigt.",
       choices: [{text: "Happ", nextState: 1}]
     },
     {
       page: 28,
+      img: vasajens,
       text: "Du kör fantastiskt trots stora horder av muppiga skidåkare! Du glider in på 3:44 och får någon form av " +
       "skitstort glansigt Oboy-glas, vad du nu ska med det till.",
       choices: [{text: "Byt Oboyglaset mot en tågbiljett hem", nextState: 4}, {text: "Drick Oboy!", nextState: 29}]
     },
     {
       page: 29,
+      img: oboy,
       text: "Ett glas Oboy är mer än vad du kommer ihåg. Du klarar inte mer. Du exploderar.",
       choices: [{text: "Eeeen gång till", nextState: 1}]
     },
     // Kista
     {
       page: 30,
-      text: "Du vandrar vilsen runt bland en massa Ericsson-byggnader. Fråga ", //TODO: Vad som ska hända i Kista
-      choices: [{text: "Eeeen gång till", nextState: 1}]
+      img: ericsson,
+      text: "Du vandrar vilsen runt bland en massa Ericsson-byggnader. Fråga om vägen kanske?",
+      choices: [{text: "Fråga", nextState: 31}, {text: "Tillbaka till tåget", nextState: 4}]
+    },
+    {
+      page: 31,
+      img: elin,
+      text: "Vart ska du? Äsch, det spelar ingen roll. Du ska säkerligen dit säger hon och pekar på en " +
+            "lägenhet lite längre bort.",
+      choices: [{text: "Följ pekningen", nextState: 32}, {text: "Virrig tjej, mot tåget!", nextState: 4}]
     },
 
     // Öland
     {
       page: 33,
+      img: amfibie,
       text: "Du bygger om tåget till någon form av amfibiebåtståg och tar dig fram till Öland.",
       choices: [{text: "Bygg om det till en ubåt", nextState: 34}, {text: "Utforska ön", nextState: 37}]
     },
     {
       page: 34,
+      img: ryssen,
       text: "En sak är säker, du är ingen ubåtsbyggare, så nu vet du det i alla fall. Tyvärr får du redan på det precis " +
       "innan en rysk ubåt kommer och börjar attackera dig.",
       choices: [{text: "Retirera", nextState: 35}, {text: "Ring kungen!", nextState: 36}]
     },
     {
       page: 35,
+      img: sjojungfru,
       text: "\"Ubåten\" sjunker till botten och du konverterar till sjöjungfru",
       choices: [{text: "Konvertera tillbaka", nextState: 1}]
     },
     {
       page: 36,
-      item: "Röda kalsonger",
+      img: kungen,
+      item: "kalsonger",
       text: "Kungen fixar biffen och jagar bort ryssen. Han ger dig ett par nya kalsonger, eftersom dina gamla blivit " +
             "blöta av olika anledningar.",
       choices: [{text: "Dags att utforska ön!", nextState: 37}]
     },
     {
       page: 37,
+      img: hatt,
       text: "Du utforskar ön och hittar bland annat lite delfiner i soluppgången. Du somnar på stranden för att sedan bli " +
       "väckt av några, vad du antar, måste vara galningar.",
       choices: [{text: "Lek med galningarna", nextState: 38}, {text: "Ta amfibiebåtståget hem", nextState: 4}]
     },
     {
       page: 38,
-      text: "Du leker med galningarna på stranden tills de bestämmer sig för att ",//TODO: Passande bild
-      choices: [{text: "Åk hem", nextState: 4}, {text: "Ta en simtur", nextState: 39}]
+      img: oland,
+      text: "Du leker med galningarna på stranden tills du bestämmer sig för att: ",
+      choices: [{text: "Åka hem", nextState: 4}, {text: "Ta en simtur", nextState: 39}]
     },
     {
       page: 39,
+      img: kalskap,
       text: "Du får ett kylskåp i huvudet. Oturlig simtur tänker du, eller ja, hade du tänkt om du haft ett huvud kvar.",
       choices: [{text: "Återuppstå", nextState: 1}]
     },
@@ -305,12 +342,14 @@ const StateStore = Reflux.createStore({
     {
       page: 40,
       item: "Handskar",
+      img: orbaden,
       text: "Här var det ju mysigt tänker du ... De ger dig ett par handskar eftersom det är så kallt ute. ", //TODO: Passande farfar och farmor bild
       choices: [{text: "Åk skidor hem", nextState: 27}, {text: "Lifta", nextState: 4}]
     },
     // Uppsala
     {
       page: 40,
+      img: cykel,
       text: "Du hittar din cykel, vart vill du cykla?",
       choices: [{text: "Stationen", nextState: 4},
                 {text: "Flogsta", nextState: 41},
@@ -322,61 +361,72 @@ const StateStore = Reflux.createStore({
     // Flogsta
     {
       page: 41,
+      img: ica_vast,
       text: "Du kommer fram till ICA väst och funderar på om det var låg- eller höghusen du ville till.",
       choices: [{text: "Mot höghusen!", nextState: 42}, {text: "Mot låghusen!", nextState: 45}]
     },
     {
       page: 42,
+      img: hoghus3,
       text: "Det är totalt kaos här, men ingen verkar bry sig. De verkar till och med tycka om det.",
       choices: [{text: "Hälsa på folk", nextState: 43}, {text: "Skaka på axlarna och gå", nextState: 40}]
     },
     {
       page: 43,
-      text: "Du hälsar på folk, vilket de verkar tycka är konstigt. Festen fortsätter länge och du börjar bli trött, men " +
-      "du kommer ju inte ihåg vart du bor.",
+      img: hoghus,
+      text: "Du hälsar på folk, vilket de verkar tycka är konstigt (eftersom de redan känner dig). " +
+            "Festen fortsätter länge och du börjar bli trött, men " +
+            "du kommer ju inte ihåg vart du bor.",
       choices: [{text: "Gå till cykeln", nextState: 40}, {text: "Fortsätt festa", nextState: 44}]
     },
     {
       page: 44,
+      img: hoghus2,
       text: "Klockan är 6 på morgonen, dags att ta sig härifrån!",
       choices: [{text: "Ta dig till stationen", nextState: 4}, {text: "Mot cykeln", nextState: 40}]
     },
     {
       page: 45,
+      img: flogsta75d,
       text: "Du plingar på en slumpmässig lägenhet, du blir inbjuden att antingen spela spel eller festa, vad låter bäst?",
       choices: [{text: "Spela spel", nextState: 46}, {text: "Festa", nextState: 47}]
     },
     {
       page: 46,
+      img: mask,
       item: "Mask",
       text: "Du spelar ett långt och onödigt komplicerat spel. Men du vinner stort och får en utklädnadsmask i pris.",
       choices: [{text: "Nöjd lämnar du lägenheten", nextState: 40}]
     },
     {
-      page: 47,
+      page: 47, // TODO: bild
       text: "Det kommer 40 personer till och klämmer in sig i lägenheten. \"Mysigt\", tänker du. Det blir en kul fest i alla fall! Vad vill du göra nu?",
       choices: [{text: "Gå till ICA", nextState: 41}, {text: "Cykla", nextState: 40}]
     },
     // Studentvägen
     {
       page: 48,
+      img: studentvagen,
       text: "Framme efter en supersnabbcykling till studentvägen, men vart vill du gå?",
       choices: [{text: "Till pizzerian", nextState: 49}, {text: "Studentvägen 3", nextState: 51}]
     },
     {
       page: 49,
+      img: pizzeria,
       text: "Pizzeriamakaren tycker du ser lite taning ut och gör en pizza med extra allt. " +
             "Gott ser det ut och du har glömt att äta sen du vaknade på snabbmatsstället.",
       choices: [{text: "Ät pizzan", nextState: 50}, {text: "Spring för livet", nextState: 11}]
     },
     {
       page: 50,
+      img: pizzahut,
       text: "Du äter upp pizzan och känner hur du liksom smälter innifrån. Du är nu en pizza. " +
             "Trevligt, men kontraproduktivt.",
       choices: [{text: "Ät upp dig själv", nextState: 1}]
     },
     {
       page: 51,
+      img: puss,
       text: "Framme vid Studentvägen 3, detta känns verkligen som hemma. Då kommer någon som du känner igen och hon är " +
             "väldigt glad att se dig, hon springer mot dig!",
       choices: [{text: "Stå kvar", nextState: 1337}, {text: "Ninja dig därifrån", nextState: 40}]
@@ -384,9 +434,9 @@ const StateStore = Reflux.createStore({
     // FooBar
     {
       page: 52,
-      text: "Du kommer fram till FooBar, det luktar svett... Och jul av någon anledning. Det kommer en galen tjej och " +
-            "drar dig i kinderna! Aj aj.",
-      choices: [{text: "Fly ut", nextState: 40}, {text: "Dags att plugga, tydligen", nextState: 53}]
+      img: foobar,
+      text: "Du kommer fram till FooBar, det luktar svett... Och jul av någon anledning. Hemtrevligt!",
+      choices: [{text: "Fly ut", nextState: 40}, {text: "Stanna", nextState: 59}, {text: "Dags att plugga, tydligen", nextState: 53}]
     },
     {
       page: 53,
@@ -421,6 +471,12 @@ const StateStore = Reflux.createStore({
             "Bra att ha tänker du och stoppar den i väskan.",
       choices: [{text: "Beställ en öl", nextState: 57}, {text: "Gå ut", nextState: 40}]
     },
+    {
+      page: 59,
+      img: kinder,
+      text: "Det kommer en galen tjej och drar dig i kinderna! Aj aj.",
+      choices: [{text: "Gå ut", nextState: 40}]
+    },
 
      // Special states
     {
@@ -432,6 +488,7 @@ const StateStore = Reflux.createStore({
     {
       page: 1338,
       bag: true,
+      img: rygga,
       text: "I ryggsäcken har du följande saker: ",
       choices: [{text: "Ta ut huvudet ur ryggsäcken", nextState: -1}]
     }
