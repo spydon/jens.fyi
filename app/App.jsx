@@ -1,6 +1,6 @@
 import React from 'react';
-import PeriusRouter from './PeriusRouter';
+import JensRouter from './JensRouter.jsx';
 
 export default () => {
-    return <PeriusRouter />;
+    return <JensRouter />;
 }

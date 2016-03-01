@@ -529,7 +529,7 @@ const StateStore = Reflux.createStore({
     }
 
     if(newState.bag) {
-      console.log(this.inventory.size);
+      newState.text = "I ryggsäcken har du följande saker: ";
       if(this.inventory.size != 0) {
         var itr = 1;
         var items = "";

@@ -11,7 +11,7 @@ export default class Inventory extends React.Component {
   }
 
   componentWillMount() {
-    this.setState({});
+    this.setState({current: {}});
   }
 
   componentDidMount() {
@@ -23,8 +23,7 @@ export default class Inventory extends React.Component {
   }
 
   updateState(state) {
-    console.log(state);
-    this.setState(state);
+    this.setState({current: state});
   }
 
   openBag() {
@@ -33,7 +32,7 @@ export default class Inventory extends React.Component {
 
   render() {
 
-    const buttonStyle = this.state.bag ? {display: "none"} : {};
+    const buttonStyle = this.state.current.bag ? {display: "none"} : {};
     return (
       <button type="button" style={buttonStyle} className="btn papyrus-btn inventory-btn" onClick={this.openBag}>
         Kolla i ryggsäcken

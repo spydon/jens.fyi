@@ -23,7 +23,8 @@ export default class End extends React.Component {
                     "BAAM! Super-Jens är i farten och ingen står säker, eller så gör alla det. Högst oklart. " +
                     "Poäng: " + score;
     const failText = "Du får en puss av den snygga tjejen och allt blod går ifrån hjärnan... " +
-                     "till någon annanstans... och du svimmar direkt! Du transporteras bakåt i tiden.";
+                     "till någon annanstans... och du svimmar direkt! Du transporteras bakåt i tiden och " +
+                     "kan ingenting göra.";
 
     const winStyle = this.props.visible ? {} : {display: "none"};
     const img = validWin ? superjens : litenjens;
