@@ -27,7 +27,7 @@ export default class Papyrus extends React.Component {
     text = text ? text.trim() : "";
     var rows = [];
     var i = 0;
-    while(text.length != 0 && i != 10) {
+    while(text.length != 0 && i != 16) {
       i++;
       const subTextLength = text.length > maxLength ? maxLength : text.length;
       const subText = text.substring(0, subTextLength).trim();
