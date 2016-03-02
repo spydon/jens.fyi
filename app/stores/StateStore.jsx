@@ -61,6 +61,10 @@ import hast from '../styles/cards/hast.jpg';
 import kista from '../styles/cards/kista.jpg';
 import sj from '../styles/cards/sj.jpg';
 import skidor from '../styles/cards/skidor.jpg';
+import katrien from '../styles/cards/katrien.jpg';
+import viktoria from '../styles/cards/viktoria.jpg';
+import anaka from '../styles/cards/anaka.jpg';
+import hojdhopp from '../styles/cards/hojdhopp.jpg';
 
 const StateStore = Reflux.createStore({
 
@@ -221,7 +225,7 @@ const StateStore = Reflux.createStore({
       page: 21, // Bild på hästtäcke
       img: cape,
       item: "Mantel",
-      text: "De känner igen dig. Väldigt konstigt att varenda person du träffar på känner och verkar gilla dig, tänker du." +
+      text: "De känner igen dig. Väldigt konstigt att varenda person du träffar på känner och verkar gilla dig, tänker du. " +
       "Vad är det här egentligen, Truman Show?! De kramar om dig och ger dig ett hästtäcke som nästan ser ut som en mantel.",
       choices: [{text: "Tacka artigt och gå till bussen", nextState: 16}]
     },
@@ -367,7 +371,8 @@ const StateStore = Reflux.createStore({
                 {text: "Studentvägen", nextState: 48},
                 {text: "FooBar", nextState: 52},
                 {text: "Döbelnsgatan", nextState: 55},
-                {text: "Uplands Nation", nextState: 56}]
+                {text: "Uplands Nation", nextState: 56},
+                {text: "Spatsera istället", nextState: 60}]
     },
     // Flogsta
     {
@@ -495,8 +500,40 @@ const StateStore = Reflux.createStore({
       text: "Det kommer en galen tjej och drar dig i kinderna! Aj aj.",
       choices: [{text: "Gå ut", nextState: 40}]
     },
-
-     // Special states
+    {
+      page: 61,
+      img: katrien,
+      text: "Två trevliga tjejer vill ta selfies med dig. Är du någon form av kändis kanske? Du får i alla fall låna " +
+            "ett par solglasögon en stund. Snällt!",
+      choices: [{text: "Gå vidare", nextState: 62}, {text: "Stanna till vid Uplands", nextState: 56}]
+    },
+    {
+      page: 62,
+      img: viktoria,
+      text: "Vid en fontän, som du är helt säker på inte finns i Uppsala (trots att du inte kommer ihåg någonting), sitter " +
+            "det en helt galen tjej. Det vet du inte heller varför du kommer ihåg.",
+      choices: [{text: "Ta en kaffe med henne", nextState: 19}, {text: "Spatsera vidare", nextState: 63}]
+    },
+    {
+      page: 63,
+      img: anaka,
+      text: "Du träffar någon form av spådam, alternativt häxa. Trevligt tänker du!",
+      choices: [{text: "Buga", nextState: 64}, {text: "Spring", nextState: 11}]
+    },
+    {
+      page: 64,
+      img: anaka,
+      text: "Du träffar någon form av spådam, alternativt häxa. Trevligt tänker du!",
+      choices: [{text: "Buga", nextState: 65}, {text: "Spring", nextState: 11}]
+    },
+    {
+      page: 65,
+      img: hojdhopp,
+      text: "Häxan transporterar dig på sin flak-kvast till flogsta och samtidigt så " +
+            "förvandlar hon dig till ett friidrottsproffs",
+      choices: [{text: "Kolla runt", nextState: 41}]
+    },
+    // Special states
     {
       page: 1337,
       end: true,

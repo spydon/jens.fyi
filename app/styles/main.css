@@ -1,10 +1,6 @@
 @font-face {
     font-family: scribbly;
-    /*src: url(janda.ttf);*/
-    /*src: url(park.ttf);*/
-    /*src: url(happy.ttf);*/
-    src: url(cassowary.ttf);
-    /*src: url(S_Hand.ttf);*/
+    src: url(typenoksidi.ttf);
 }
 
 body {
@@ -15,7 +11,7 @@ body {
 
 p {
     font-family: scribbly;
-    font-size: 35pt;
+    font-size: 20pt;
 }
 
 .center {
@@ -30,7 +26,8 @@ p {
 }
 
 .css-typing {
-    margin-top: -35px;
+    margin-top: -15px;
+    /*margin-top: -35px;*/
     max-width:100%;
     white-space:nowrap;
     overflow:hidden;

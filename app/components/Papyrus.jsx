@@ -23,7 +23,7 @@ export default class Papyrus extends React.Component {
   }
 
   splitString(text) {
-    const maxLength = 37;
+    const maxLength = 29;
     text = text ? text.trim() : "";
     var rows = [];
     var i = 0;
@@ -35,7 +35,7 @@ export default class Papyrus extends React.Component {
       const end = subTextLength < maxLength ? subTextLength : lastSpace;
       const row = subText.substring(0, end);
 
-      const size = row.length/2 + "em";
+      const size = (row.length/2)+2 + "em";
       const style = {width: size};
 
       rows = rows.concat(<p key={rows.length} className="css-typing" style={style}>{row}</p>);
