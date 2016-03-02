@@ -11,7 +11,7 @@ export default class End extends React.Component {
     const pages = new Set();
     history.forEach(state => pages.add(state.page));
     // TODO: parse history tree to see if it's a valid win
-    return inventory.size == 0;
+    return inventory.size == 8;
   }
 
   render() {

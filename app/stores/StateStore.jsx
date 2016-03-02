@@ -372,7 +372,7 @@ const StateStore = Reflux.createStore({
                 {text: "FooBar", nextState: 52},
                 {text: "Döbelnsgatan", nextState: 55},
                 {text: "Uplands Nation", nextState: 56},
-                {text: "Spatsera istället", nextState: 60}]
+                {text: "Spatsera istället", nextState: 61}]
     },
     // Flogsta
     {
@@ -522,12 +522,6 @@ const StateStore = Reflux.createStore({
     },
     {
       page: 64,
-      img: anaka,
-      text: "Du träffar någon form av spådam, alternativt häxa. Trevligt tänker du!",
-      choices: [{text: "Buga", nextState: 65}, {text: "Spring", nextState: 11}]
-    },
-    {
-      page: 65,
       img: hojdhopp,
       text: "Häxan transporterar dig på sin flak-kvast till flogsta och samtidigt så " +
             "förvandlar hon dig till ett friidrottsproffs",
