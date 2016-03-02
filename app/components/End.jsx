@@ -16,7 +16,7 @@ export default class End extends React.Component {
 
   render() {
     const validWin = this.checkValidity(this.props.history, this.props.inventory);
-    const score = 300-this.props.history.length;
+    const score = 300-Math.round(1.1^this.props.history.length);
     const winText = "Du får en puss, på munnen! Allting klarnar, du vet vem du är! Du. Är. Suuuuper-Jens! " +
                     "Du slänger av dig kläderna och tar på dig det som måste vara dina riktiga, de du har i ryggsäcken! " +
                     "Spandex, Capé, Skärp med SJ (Super-Jens), Badmössa, Super-spring-skor, tighta handskar och en mask; " +
